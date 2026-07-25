@@ -1,0 +1,44 @@
+---
+---
+
+<p><strong>Email:</strong> <button type="button" class="reveal-contact" id="reveal-email">Click to show email</button></p>
+<p><strong>Phone:</strong> <button type="button" class="reveal-contact" id="reveal-phone">Click to show phone</button></p>
+
+<script>
+  const emailEncoded = 'd2VhcmVmcmVldG9zZXRmcmVlQGdtYWlsLmNvbQ==';
+  const revealEmail = document.getElementById('reveal-email');
+  revealEmail?.addEventListener('click', () => {
+    const email = atob(emailEncoded);
+    const link = document.createElement('a');
+    link.href = `mailto:${email}`;
+    link.textContent = email;
+    revealEmail.replaceWith(link);
+  });
+
+  const phoneEncoded = 'NTIwNDQwNDk0Mg==';
+  const revealPhone = document.getElementById('reveal-phone');
+  revealPhone?.addEventListener('click', () => {
+    const phoneDigits = atob(phoneEncoded);
+    const formatted = `(${phoneDigits.slice(0, 3)}) ${phoneDigits.slice(3, 6)}-${phoneDigits.slice(6)}`;
+    const link = document.createElement('a');
+    link.href = `tel:+1${phoneDigits}`;
+    link.textContent = formatted;
+    revealPhone.replaceWith(link);
+  });
+</script>
+
+<style>
+  .reveal-contact {
+    background: none;
+    border: 1px solid currentColor;
+    border-radius: 0.25em;
+    padding: 0.15em 0.6em;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .reveal-contact:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+</style>
