@@ -1,0 +1,11 @@
+---
+import { getNavTree } from '../lib/nav';
+import NavList from './NavList.astro';
+
+const tree = await getNavTree();
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="site-sidebar" aria-label="Primary">
+  <NavList nodes={tree} currentPath={currentPath} />
+</aside>

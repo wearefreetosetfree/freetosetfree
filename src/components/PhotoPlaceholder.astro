@@ -1,0 +1,27 @@
+---
+// Drop this into any .mdx page to reserve space for a photo that hasn't
+// been added yet:
+//
+//   <PhotoPlaceholder caption="Picture of Johnny and Lijah cutting boards" />
+//
+// Once the real photo is ready, swap the whole tag for a normal image, e.g.
+//   <img src="/images/johnny-lijah.jpg" alt="Johnny and Lijah cutting boards" />
+interface Props {
+  caption: string;
+}
+
+const { caption } = Astro.props;
+---
+
+<div class="photo-placeholder">
+  <svg class="photo-placeholder__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M4 7h3l1.5-2h7L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    />
+    <circle cx="12" cy="13" r="3.25" stroke="currentColor" stroke-width="1.5" />
+  </svg>
+  <span class="photo-placeholder__caption">{caption}</span>
+</div>

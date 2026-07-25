@@ -1,0 +1,269 @@
+:root {
+  --color-header-bg: #16324f;
+  --color-header-text: #ffffff;
+  --color-sidebar-bg: #d9edfb;
+  --color-sidebar-text: #16324f;
+  --color-sidebar-active-bg: #b9def5;
+  --color-body-bg: #ffffff;
+  --color-text: #232323;
+  --color-accent-green: #2f7d4f;
+  --color-accent-green-dark: #235f3c;
+  --color-rule: #7fb8dc;
+  --color-disclaimer-text: #767676;
+
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --sidebar-width: 220px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-body-bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-header-bg);
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-accent-green-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  border-left: 4px solid var(--color-accent-green);
+  margin: 1.5rem 0;
+  padding: 0.25rem 1rem;
+  font-style: italic;
+  color: var(--color-header-bg);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  background: var(--color-header-bg);
+  padding: 1.5rem 2rem 1rem;
+}
+
+.site-header__brand {
+  display: flex;
+  justify-content: center;
+}
+
+.site-header__logo {
+  width: 280px;
+  max-width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+.site-header__tagline {
+  color: var(--color-header-text);
+  font-family: var(--font-heading);
+  font-style: italic;
+  margin: 1.25rem 0 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.site-header__rule {
+  border: none;
+  border-top: 3px solid var(--color-rule);
+  margin: 1rem 0 0;
+}
+
+/* ---------- Layout ---------- */
+
+.site-body {
+  display: flex;
+  align-items: stretch;
+}
+
+.site-sidebar {
+  background: var(--color-sidebar-bg);
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  padding: 1.5rem 0;
+}
+
+.site-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-sidebar__list .site-sidebar__list {
+  padding-left: 1rem;
+}
+
+.site-sidebar__link {
+  display: block;
+  padding: 0.65rem 1.5rem;
+  color: var(--color-sidebar-text);
+  text-decoration: none;
+  font-weight: 600;
+  border-left: 4px solid transparent;
+}
+
+.site-sidebar__link:hover {
+  background: var(--color-sidebar-active-bg);
+}
+
+.site-sidebar__link.is-active {
+  background: var(--color-sidebar-active-bg);
+  border-left-color: var(--color-header-bg);
+}
+
+.site-sidebar__group {
+  display: block;
+  padding: 0.65rem 1.5rem 0.25rem;
+  color: var(--color-sidebar-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+
+.site-main {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  max-width: 860px;
+}
+
+/* ---------- Photo placeholder ---------- */
+
+.photo-placeholder {
+  border: 2px dashed #9aa6b2;
+  border-radius: 6px;
+  background: #f4f6f8;
+  color: #6b7580;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.photo-placeholder__icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.6;
+}
+
+.photo-placeholder__caption {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ---------- Content photos ---------- */
+
+.content-photo {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+/* Use on portrait-oriented photos (people photographed vertically, close-up
+   shots, etc.) so less of the photo - especially faces near the top - gets
+   trimmed off. Add class="content-photo content-photo--portrait" to the
+   image tag. */
+.content-photo--portrait {
+  max-height: 840px;
+  object-position: center 22%;
+}
+
+/* ---------- Donate button ---------- */
+
+.donate-button {
+  display: inline-block;
+  background: var(--color-accent-green);
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.donate-button:hover {
+  background: var(--color-accent-green-dark);
+}
+
+.qr-code {
+  display: block;
+  width: 180px;
+  height: 180px;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  background: #fff;
+}
+
+/* ---------- Disclaimer footer ---------- */
+
+.site-disclaimer {
+  border-top: 1px solid #e2e2e2;
+  background: var(--color-body-bg);
+  color: var(--color-disclaimer-text);
+  font-size: 9px;
+  line-height: 1.5;
+  padding: 1rem 3rem 1.5rem;
+}
+
+.site-disclaimer p {
+  margin: 0 0 0.5rem;
+}
+
+.site-disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .site-body {
+    flex-direction: column;
+  }
+
+  .site-sidebar {
+    width: 100%;
+  }
+
+  .site-sidebar__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .site-main {
+    padding: 1.5rem;
+  }
+}

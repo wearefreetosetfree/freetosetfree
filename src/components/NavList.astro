@@ -1,0 +1,35 @@
+---
+import type { NavNode } from '../lib/nav';
+
+interface Props {
+  nodes: NavNode[];
+  currentPath: string;
+}
+
+const { nodes, currentPath } = Astro.props;
+
+function normalize(path: string) {
+  if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+  return path;
+}
+
+const current = normalize(currentPath);
+---
+
+<ul class="site-sidebar__list">
+  {nodes.map((node) => (
+    <li>
+      {node.href ? (
+        <a
+          class:list={['site-sidebar__link', { 'is-active': normalize(node.href) === current }]}
+          href={node.href}
+        >
+          {node.label}
+        </a>
+      ) : (
+        <span class="site-sidebar__group">{node.label}</span>
+      )}
+      {node.children.length > 0 && <Astro.self nodes={node.children} currentPath={currentPath} />}
+    </li>
+  ))}
+</ul>
